@@ -1,5 +1,3 @@
-import java.util.Date;
-
 public class Ticket {
         public String origin;
         public String origin_name;
@@ -11,6 +9,7 @@ public class Ticket {
         public String arrival_time;
         public String carrier;
         public int stops;
+        public int price;
 
         @Override
         public String toString() {
@@ -28,6 +27,4 @@ public class Ticket {
                         ", price=" + price +
                         '}' + '\n';
         }
-
-        public int price;
 }
