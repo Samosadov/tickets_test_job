@@ -10,11 +10,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     private static float avgPrice = 0F;
-    private static float median = 0F;
-    private static float difPrice = 0F;
     private static String answear;
-    private static ArrayList<Integer> prices = new ArrayList<>();
-    private static HashMap<String, Long> carriers = new HashMap<>();
+    private static final ArrayList<Integer> prices = new ArrayList<>();
+    private static final HashMap<String, Long> carriers = new HashMap<>();
 
     public static void jsonRead(String fileName){
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -58,9 +56,9 @@ public class Main {
         }
         avgPrice /= prices.size();
         int index = prices.size() / 2;
-        median = (prices.size() % 2 == 1) ? prices.get(index) : (float) (prices.get(index - 1) + prices.get(index)) / 2;
+        float median = (prices.size() % 2 == 1) ? prices.get(index) : (float) (prices.get(index - 1) + prices.get(index)) / 2;
 
-        difPrice = avgPrice - median;
+        float difPrice = avgPrice - median;
 
         String difPriceStr = new DecimalFormat("0.00").format(difPrice);
         String avgPriceStr = new DecimalFormat("0.00").format(avgPrice);
